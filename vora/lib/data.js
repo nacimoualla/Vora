@@ -42,7 +42,7 @@ export const productDetail = {
   subtitle: "Series X - Studio Edition",
   price: 349.00,
   originalPrice: 399.00,
-  rating: 4.9,
+  rating: 4.7,
   reviews: 128, // Added a review count to go next to the stars!
   description: "Experience pure sound with industry-leading noise cancellation and 30-hour battery life. Designed for the modern audiophile who demands precision and comfort in every note.",
   

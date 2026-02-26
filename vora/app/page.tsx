@@ -1,6 +1,6 @@
-import Hero from "@/components/HeroSec"
-import FeaturesSec from "@/components/FeaturesSec"
-import ProductGrid from "@/components/ProductGrid"
+import Hero from "@/components/layout/HeroSec"
+import FeaturesSec from "@/components/layout/FeaturesSec"
+import ProductGrid from "@/components/product/ProductGrid"
 export default function Home() {
   return (
     <>

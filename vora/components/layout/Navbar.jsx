@@ -1,5 +1,5 @@
 ' use client '
-import Link from "next/link"
+import Links from "@/components/ui/Links";
 import { Search, ShoppingBag, User } from 'lucide-react';
 export default function Navbar(){
     return(
@@ -12,9 +12,9 @@ export default function Navbar(){
                 <h3>Vora</h3>
             </div>
             <div className="flex gap-5 flex-row">
-                <Link className="hover:text-[#008DFF]" href="/shop">Shop</Link>
-                <Link className="hover:text-[#008DFF]" href="/about">About</Link>
-                <Link className="hover:text-[#008DFF]" href="/support">Support</Link>
+                <Links href="/">Shop</Links>
+                <Links href="/about">About</Links>
+                <Links href="/support">Support</Links>
             </div>
             <div className="flex gap-3 flex-row">
                 <button className="hover:text-[#008DFF] hover:bg-[#CBDAEC] p-2 hover:rounded-2xl transition-all">
