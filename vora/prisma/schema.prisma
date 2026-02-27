@@ -26,6 +26,8 @@ model Product{
   updateAt DateTime @updatedAt
   wishlistedBy Wishlist[]
   reviews Review[]
+  orderItems OrderItem[]
+  stockQuantity Int @default(0)
 }
 
 model User {
@@ -40,6 +42,7 @@ model User {
   sessions      Session[]
   wishlist      Wishlist[]
   reviews       Review[]
+  orders        Order[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
@@ -106,4 +109,35 @@ model Review {
 enum Role {
   USER
   ADMIN
+}
+
+model Order {
+  id          String      @id @default(cuid())
+  userId      String
+  totalAmount Float
+  status      OrderStatus @default(PENDING)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orderItems  OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  productId String
+  quantity  Int
+  price     Float
+
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  SHIPPED
+  DELIVERED
+  CANCELLED
 }
